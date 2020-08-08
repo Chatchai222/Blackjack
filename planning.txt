@@ -1,0 +1,148 @@
+# Some notes concerning the game
+# Blackjack(naturals) trumps 21 Ex: 6 + 7 + 8 loses to Ace + 10
+#
+
+## Functions for the blackjack game ##
+def check_if_above_21:
+    Look at the hand
+    Do a soft value of the hand
+    If the total value is already above 21 bust the hand
+    For each card in hand
+        If it is an ace and soft count is <11
+            Add 10 to the total
+    Return the final count 
+
+
+
+
+
+
+
+
+## Pregame check ##
+If the shoe box has less cards than the minimal required cards:
+    The shoebox will take cards from the card bin
+    Refill itself and shuffle the cards
+If the player has no money left:
+    Tell the player they are broke and shoo them off
+
+Player walks up to the table
+Player will put down some amount of bet
+Dealer will deal 2 cards faceup to the player and 2 cards to himself one of which is facedown
+
+## Check for insurance payout ##
+If the dealer face-up card is an ace
+    Ask the player if they want an insurance
+        If the player do want insurance
+            player will pay an additional half of their bet into insurance bet
+        If the player DON't want insurance
+            move on
+
+If the player has insurance bet:
+    The dealer will check his cards
+    If the dealer has a blackjack:
+        The dealer will payout the the insurance bet (Insurance bet * House rate for insurance)
+
+## Check for blackjacks ##
+If the player has blackjack:
+    Dealer will reveal his card
+    If the dealer DON't have blackjack
+        Pay the player according to (His bet * House rate for blackjack)
+        Clear the cards from the hands
+        END OF ROUND
+    If the dealer have blackjack:
+        The bets in the hand are pushed
+        Clear the cards from the hands
+        END OF ROUND
+
+If the dealer has a face up card with a value of 10 or Ace:
+    The dealer check if they have blackjack
+    If the dealer has blackjack:
+        Dealer reveals his cards
+        The dealer gets the player money
+        Clear the cards from the hands
+        END OF ROUND
+
+
+
+## Checking if the player can make playing decision ##
+while there is still hands to be played:
+    For each hand:
+        while the hand is not over and not busted:
+
+    ## Checking for bust and ending of hand ##
+    Check if the hand is busted:
+        The hand is busted
+        Player loses money of the hand
+        The dealer moves onto the next hand
+
+    Check if hand is over:
+        The dealer moves on to the next hand
+
+    ## Main playing decision of the players ##
+    Ask the player what they want to do
+
+    If the player choose to stand his hand:
+        The hand will end
+        The dealer moves onto the next hand
+
+    If the player choose to hit:
+        The dealer will add one more card to the hand
+
+    If the player choose to double down:
+        If the hand is allowed to be doubled down:  # Only having 2 cards
+            Ask the player how much they want to add
+            The player will add up to an equal amount of money to the initial bet on the hand
+            The dealer will hit one more card to the hand
+            The hand is over
+        Else:
+            Tell the player they can't double down
+
+    If the player choose to split the hand:
+        If the hand is splittable:  # Having enough money to split and the cards are
+            Dealer will split the hand
+            Dealer will deal one card to each hand
+            Ask the player how much they want to add to the bet
+            Player will add an up to equal amount of bet to the new hand created as the splitted hand
+            If the pair cards are Aces:
+                Both hands are over
+        Else:
+            Tell the player they can't split the card
+
+### The dealer playing of hands ###
+If there is no 'over' hand:  # Everyone busted
+    Clear the cards
+    END OF ROUND
+
+The dealer will reveal his hidden card
+While his hand is not satisfied by the house condition and not busted:  # Keep hitting till hard/soft 17 or 16
+    Dealer will hit new card to his hand
+
+If the dealer bust:
+    He pays every 'over' hands of the player according to house rates (Bet * win rate)
+    Clear cards
+    END OF ROUND
+Else:
+    For each hand of the player the dealer will compare to his hand:
+        If the dealer hand is closer to 21 than the player hand:
+            The dealer will payout that hand according to a house rate (Bet * win rate)
+        If the dealer hand is the same as the player hand:
+            The bets are pushed
+        If the dealer hand is farther away from 21 than the player hand:
+            The player loses his hands bet
+    Clear the cards
+
+END OF ROUND
+
+
+
+
+
+
+
+
+
+
+
+
+
