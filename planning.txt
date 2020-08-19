@@ -33,7 +33,7 @@ Dealer will deal 2 cards faceup to the player and 2 cards to himself one of whic
 ## Check for insurance payout ##
 If the dealer face-up card is an ace
     Ask the player if they want an insurance
-        If the player do want insurance
+        If the player do want insurance and have the money to pay for insurance
             player will pay an additional half of their bet into insurance bet
         If the player DON't want insurance
             move on
@@ -42,6 +42,9 @@ If the player has insurance bet:
     The dealer will check his cards
     If the dealer has a blackjack:
         The dealer will payout the the insurance bet (Insurance bet * House rate for insurance)
+    Else:
+        The dealer will take the player insurance bet
+
 
 ## Check for blackjacks ##
 If the player has blackjack:
