@@ -19,7 +19,7 @@ def check_if_above_21:
 
 
 
-## Pregame check ##
+## Pregame set up ##
 If the shoe box has less cards than the minimal required cards:
     The shoebox will take cards from the card bin
     Refill itself and shuffle the cards
@@ -136,6 +136,11 @@ Else:
     Clear the cards
 
 END OF ROUND
+
+### Hands clearing phase and house taking player bet ###
+The dealer will take cards from the player box and put it into the cardbin
+The dealer will then take the remaining bet on the box for each hand
+The dealer will then also put own cards onto the cardbin
 
 
 
